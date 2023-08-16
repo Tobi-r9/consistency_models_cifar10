@@ -24,6 +24,7 @@ dist/
 /datasets
 /models
 /samples
+/wandb
 
 # temporary files
 tmp*
