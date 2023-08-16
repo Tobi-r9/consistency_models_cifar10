@@ -19,3 +19,11 @@ dist/
 
 # Other
 *.DS_Store
+
+#data
+/datasets
+/models
+/samples
+
+# temporary files
+tmp*
