@@ -141,6 +141,8 @@ def train(config, workdir):
     train_iter = iter(train_ds)
     eval_iter = iter(eval_ds)
 
+    print(f"local device count {jax.local_device_count()}")
+
     # Building sampling functions
     if config.training.snapshot_sampling:
         sampling_shape = (
@@ -160,7 +162,7 @@ def train(config, workdir):
         logging.info("Starting training loop at step %d." % (initial_step,))
 
     rng = hk.PRNGSequence(jax.random.fold_in(next(rng), jax.process_index()))
-
+    print(f"batch_size: {config.training.batch_size // jax.local_device_count()}")
     # JIT multiple training steps together for faster training
     n_jitted_steps = config.training.n_jitted_steps
     # Must be divisible by the number of steps jitted together
