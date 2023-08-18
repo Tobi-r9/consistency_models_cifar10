@@ -11,9 +11,9 @@ def get_config():
     training.batch_size = 512
     training.n_iters = 400001
     training.n_jitted_steps = 2
-    training.snapshot_freq = 10000
-    training.snapshot_freq_for_preemption = 5000
-    training.log_freq = 50
+    training.snapshot_freq = 20000
+    training.snapshot_freq_for_preemption = 20000
+    training.log_freq = 100
     training.eval_freq = 100
 
     # sampling

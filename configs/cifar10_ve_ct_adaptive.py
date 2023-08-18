@@ -14,8 +14,8 @@ def get_config():
     training.ref_config = get_ref_config()
     training.n_iters = 800000
     training.n_jitted_steps = 1
-    training.snapshot_freq_for_preemption = 5000
-    training.snapshot_freq = 10000
+    training.snapshot_freq_for_preemption = 20000
+    training.snapshot_freq = 20000
     training.batch_size = 512
     training.loss_norm = "lpips"
     training.finetune = False
