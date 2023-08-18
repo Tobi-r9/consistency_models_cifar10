@@ -13,8 +13,8 @@ def get_config():
     training.n_jitted_steps = 2
     training.snapshot_freq = 20000
     training.snapshot_freq_for_preemption = 20000
-    training.log_freq = 100
-    training.eval_freq = 100
+    training.log_freq = 1000
+    training.eval_freq = 1000
 
     # sampling
     sampling = config.sampling
