@@ -253,13 +253,15 @@ def compute_metrics(
             feat_model=feat_model,
         )
 
-        with blobfile.BlobFile(
-            os.path.join(eval_dir, f"metrics_{ckpt}.npz"),
-            "wb",
-        ) as fout:
-            io_buffer = io.BytesIO()
-            np.savez_compressed(io_buffer, fid=fid_score)
-            fout.write(io_buffer.getvalue())
+        # with blobfile.BlobFile(
+        #     os.path.join(eval_dir, f"metrics_{ckpt}.npz"),
+        #     "wb",
+        # ) as fout:
+        #     io_buffer = io.BytesIO()
+        #     np.savez_compressed(io_buffer, fid=fid_score)
+        #     fout.write(io_buffer.getvalue())
+        with open(os.path.join(eval_dir, f"metrics_{ckpt}.txt"), "w") as text_file:
+            text_file.write(f"FID: {fid_score:g}")
 
         metrics_meta = metrics_meta.replace(ckpt_id=ckpt + 1)
         checkpoints.save_checkpoint(
